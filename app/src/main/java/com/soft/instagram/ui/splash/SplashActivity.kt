@@ -10,6 +10,7 @@ import com.soft.instagram.SPLASH_DELAY
 import com.soft.instagram.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
