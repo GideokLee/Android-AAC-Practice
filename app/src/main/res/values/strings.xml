@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Instagram</string>
+    <!-- Activity Title-->
+    <string name="title_activity_main">Main</string>
+    <string name="title_activity_login">Login</string>>
 
 </resources>

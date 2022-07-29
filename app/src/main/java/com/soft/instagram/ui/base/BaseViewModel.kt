@@ -5,9 +5,9 @@ import java.util.logging.ErrorManager
 import javax.inject.Inject
 
 abstract class BaseViewModel : ViewModel() {
-    /**Inject Singleton ErrorManager
-     * Use this errorManager to get the Errors
-     */
-    @Inject
-    lateinit var errorManager: ErrorManager
+//    /**Inject Singleton ErrorManager
+//     * Use this errorManager to get the Errors
+//     */
+//    @Inject
+//    lateinit var errorManager: ErrorManager
 }
