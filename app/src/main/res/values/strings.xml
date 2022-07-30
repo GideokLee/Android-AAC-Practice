@@ -4,4 +4,10 @@
     <string name="title_activity_main">Main</string>
     <string name="title_activity_login">Login</string>>
 
+    <!--Error String -->
+    <string name="search_error">there is no such recipe name</string>
+    <string name="network_error">Network error, could get data,please try again!</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >4 characters</string>
+    <string name="invalid_username_and_password">please check your username and password</string>
 </resources>
