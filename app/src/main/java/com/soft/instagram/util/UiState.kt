@@ -1,4 +1,4 @@
-package com.soft.instagram.util.extensions
+package com.soft.instagram.util
 
 sealed class UiState<out T> {
     object Loading : UiState<Nothing>()
