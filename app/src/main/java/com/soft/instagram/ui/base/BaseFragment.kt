@@ -9,8 +9,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 
-class BaseFragment<B : ViewDataBinding> constructor(@LayoutRes private val layoutId: Int) :
-    Fragment() {
+class BaseFragment<B : ViewDataBinding>(
+    @LayoutRes private val layoutId: Int
+) : Fragment() {
 
     protected lateinit var binding: B
 
@@ -20,7 +21,7 @@ class BaseFragment<B : ViewDataBinding> constructor(@LayoutRes private val layou
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
-        binding.lifecycleOwner = this.viewLifecycleOwner
+        binding.lifecycleOwner = this@BaseFragment.viewLifecycleOwner
         return binding.root
     }
 }

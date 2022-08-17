@@ -1,13 +1,15 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
-apply plugin: 'androidx.navigation.safeargs.kotlin'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+}
 
-android{
+android {
     compileSdkVersion rootProject.compileSdkVersion
 
-    defaultConfig{
+    defaultConfig {
         applicationId "com.soft.instagram"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
@@ -16,15 +18,15 @@ android{
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    buildTypes{
-        debug{
+    buildTypes {
+        debug {
             minifyEnabled false
             testCoverageEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
 
-        release{
+        release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -32,21 +34,21 @@ android{
         }
     }
 
-    dataBinding{
+    dataBinding {
         enabled = true
         enabledForTests = true
     }
 
-    compileOptions{
+    compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
 
-    kotlinOptions{
+    kotlinOptions {
         jvmTarget = '1.8'
     }
 
-    packagingOptions{
+    packagingOptions {
 // Multiple dependency bring these files in. Exclude them to enable
         // our test APK to build (has no effect on our AARs)
         excludes += "/META-INF/AL2.0"
@@ -54,8 +56,8 @@ android{
     }
 }
 
-kapt{
-    arguments{
+kapt {
+    arguments {
 // Make Hilt share the same definition of Components in tests instead of
         // creating a new set of Components per test class.
         arg("dagger.hilt.shareTestComponents", "true")
@@ -63,7 +65,7 @@ kapt{
 }
 
 
-dependencies{
+dependencies {
 
 // App dependencies
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
@@ -72,6 +74,7 @@ dependencies{
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "androidx.annotation:annotation:$androidXAnnotations"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -84,6 +87,7 @@ dependencies{
     implementation "androidx.room:room-ktx:$roomVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$archLifecycleVersion"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
@@ -113,4 +117,6 @@ dependencies{
         exclude group: "com.android.support"
     }
     implementation "androidx.activity:activity-ktx:$activityKtxVersion"
+
+    implementation "androidx.core:core-splashscreen:$splashVersion"
 }
