@@ -60,8 +60,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
     private fun signin() {
         val email = binding.tietEmail.text.toString()
         val pwd = binding.tietPassword.text.toString()
-        if (!checkLoginValidate(email, pwd)) return Unit
-        vm.login(email, pwd)
+        if (!checkLoginValidate(email, pwd)) {
+            Toast.makeText(this, "유효하지 않은 email 또는 password", Toast.LENGTH_SHORT).show()
+        } else vm.login(email, pwd)
     }
 
     private fun checkLoginValidate(email: String?, password: String?): Boolean {
